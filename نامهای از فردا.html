@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>نامه‌ای از فردا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4ecdb; --fg:#3b3428; --muted:#8c7f68; --line:#e0d4bb; --card:#fbf6e9;
+  --accent:#6d7d68; --danger:#a65a4e;
+  --shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.05);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#161614; --fg:#ebe8e2; --muted:#8e8a82; --line:#2d2c29; --card:#1e1d1b;
+    --accent:#a4b59c; --danger:#d08a7c;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161614; --fg:#ebe8e2; --muted:#8e8a82; --line:#2d2c29; --card:#1e1d1b;
+  --accent:#a4b59c; --danger:#d08a7c;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+}
+@font-face{font-family:'DoranVF';src:local('Doran-VF'),local('Doran VF'),local('Doran Variable'),local('Doran');font-weight:100 900;font-style:normal;font-display:swap}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--fg)}
+body{font-family:'DoranVF','Doran',system-ui,-apple-system,sans-serif;min-height:100vh;min-height:100dvh;line-height:1.9;overflow-x:hidden;-webkit-text-size-adjust:100%}
+button,select,input,textarea{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+html.fa-fallback body{font-family:'Vazirmatn',system-ui,-apple-system,sans-serif}
+body::before{
+  content:"";position:fixed;inset:-20%;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(circle at 18% 18%,color-mix(in srgb,var(--accent) 14%,transparent),transparent 40%),
+    radial-gradient(circle at 82% 72%,color-mix(in srgb,var(--accent) 10%,transparent),transparent 45%);
+  animation:drift 32s ease-in-out infinite;
+}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(3%,-2%)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes shake{0%,100%{transform:none}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+
+.wrap{max-width:560px;margin:0 auto;padding:44px 20px 90px}
+h1{font-weight:300;font-size:32px;letter-spacing:-.01em;margin:0 0 10px;animation:fadeUp .8s both}
+.lead{color:var(--muted);margin:0 0 18px;animation:fadeUp .8s .1s both}
+.prompts{list-style:none;padding:0;margin:0 0 14px;display:grid;gap:10px}
+.prompts li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);animation:fadeUp .8s both}
+.prompts li:nth-child(2){animation-delay:.15s}
+.note{color:var(--muted);font-size:13px;margin:0 0 30px;animation:fadeIn 1.2s .3s both}
+
+input,select,textarea{
+  font:inherit;color:var(--fg);background:var(--card);border:1px solid var(--line);
+  border-radius:12px;padding:10px 14px;outline:none;width:100%;
+  transition:border-color .2s,box-shadow .2s;
+}
+input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 18%,transparent)}
+textarea{min-height:150px;resize:none;overflow:hidden;line-height:1.9;overflow-wrap:anywhere}
+button{
+  font:inherit;cursor:pointer;background:var(--fg);color:var(--bg);border:1px solid transparent;
+  border-radius:999px;padding:10px 18px;transition:transform .15s,opacity .2s,border-color .2s;
+}
+button:hover{opacity:.88}
+button:active{transform:scale(.97)}
+.ghost{background:transparent;color:var(--fg);border-color:var(--line)}
+.danger{background:transparent;color:var(--danger);border-color:var(--line)}
+
+.addrow{display:grid;grid-template-columns:1fr 1fr auto;gap:8px}
+@media (max-width:480px){.addrow{grid-template-columns:1fr 1fr}.addrow button{grid-column:1/-1}}
+
+.list{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:10px}
+.item{animation:fadeUp .6s both}
+.row{
+  width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;
+  background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:14px;
+  padding:16px 18px;text-align:start;box-shadow:var(--shadow);opacity:1;
+}
+.row:hover{border-color:var(--accent);opacity:1}
+.row .nm{font-size:17px;min-width:0;overflow-wrap:anywhere}
+.row .rel{color:var(--muted);font-size:14px;white-space:nowrap}
+.empty{color:var(--muted);text-align:center;margin:40px 0 0;animation:fadeIn 1s both}
+
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:40px}
+.toolbar label{display:inline-block}
+.io{margin-top:28px;color:var(--muted);font-size:14px}
+.io summary{cursor:pointer;text-align:center;padding:6px}
+.io textarea{min-height:120px;margin:10px 0;direction:ltr;font-size:13px;text-align:left}
+
+.view{display:none}
+.view.active{display:block;animation:fadeUp .5s both}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:22px}
+.topbar.sticky{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;padding:10px 0;margin-top:-10px;background:color-mix(in srgb,var(--bg) 90%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.status{font-size:13px;color:var(--muted);opacity:0;transition:opacity .4s}
+.status.show{opacity:1}
+.nameIn{font-size:26px;font-weight:300;background:transparent;border:none;border-bottom:1px solid var(--line);border-radius:0;padding:4px 0;margin-bottom:10px}
+.nameIn:focus{box-shadow:none;border-bottom-color:var(--accent)}
+.relIn{width:auto;display:inline-block;margin-bottom:6px;font-size:16px;padding:6px 14px;border-radius:999px}
+.field{display:block;margin:26px 0 0;font-size:15px}
+.field > span{display:block;margin-bottom:8px;color:var(--fg)}
+.field small{display:block;color:var(--muted);margin-top:4px}
+.rowbtns{display:flex;justify-content:space-between;gap:10px;margin-top:34px;flex-wrap:wrap}
+
+.themeBtn{font-size:13px;padding:6px 14px;background:transparent;color:var(--fg);border:1px solid var(--line)}
+.toast{
+  position:fixed;bottom:calc(24px + env(safe-area-inset-bottom,0px));left:50%;
+  transform:translate(-50%,20px);background:var(--fg);color:var(--bg);
+  padding:10px 18px;border-radius:999px;opacity:0;transition:opacity .4s,transform .4s;
+  pointer-events:none;font-size:14px;z-index:99;white-space:nowrap;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* presentation mode */
+.present{
+  position:fixed;inset:0;z-index:50;background:#121211;color:#ece9e3;
+  display:flex;flex-direction:column;animation:fadeIn .5s both;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+.present.hidden{display:none}
+.pclose{position:absolute;top:calc(10px + env(safe-area-inset-top,0px));right:12px;background:rgba(18,18,17,.75);color:#a8a49c;border:none;font-size:18px;width:44px;height:44px;padding:0;border-radius:999px;z-index:2}
+.pfill{height:2px;background:#2a2927}
+.pfill i{display:block;height:100%;width:0;background:#a4b59c;transition:width .7s ease}
+.pstage{flex:1;min-height:0;position:relative;display:flex;padding:64px 26px 32px;cursor:pointer;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;outline:none;user-select:none;-webkit-user-select:none}
+.slide{max-width:640px;width:100%;text-align:center;margin:auto}
+.pn{font-size:clamp(42px,9vw,76px);font-weight:300;margin:0;line-height:1.3;animation:fadeUp 1.1s both}
+.pr{color:#a4b59c;margin:10px 0 0;font-size:clamp(15px,2.6vw,18px);animation:fadeUp 1.1s .15s both}
+.block{display:none;opacity:0;transform:translateY(18px);transition:opacity 1s ease,transform 1s ease;margin:34px auto 0;max-width:540px}
+.block.show{display:block}
+.block.on{opacity:1;transform:none}
+.lbl{display:block;font-size:13px;color:#8e8a82;letter-spacing:.02em;margin-bottom:10px}
+.txt{font-size:clamp(18px,3.4vw,24px);line-height:2;margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+.long .block,.xlong .block{max-width:620px}
+.long .pn,.xlong .pn{font-size:clamp(32px,7vw,52px)}
+.long .txt{font-size:clamp(16px,2.9vw,20px);line-height:2.05;text-align:start}
+.xlong .txt{font-size:clamp(15px,2.6vw,18px);line-height:2.05;text-align:start}
+.pbottom{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;color:#8e8a82;font-size:14px;gap:10px}
+.pbottom button{background:transparent;color:#ece9e3;border:1px solid #333;padding:10px 22px;min-height:44px}
+.pbottom button:disabled{opacity:.3;cursor:default}
+
+@media (max-width:520px){
+  .wrap{padding:24px 16px 72px}
+  h1{font-size:27px}
+  button{min-height:44px}
+  input,select{min-height:46px}
+  .row{padding:15px 16px}
+  .toolbar{gap:10px;margin-top:32px}
+  .toolbar>*{flex:1 1 calc(50% - 10px);text-align:center}
+  .toolbar label{min-height:44px;display:flex;align-items:center;justify-content:center}
+  #presentAll{flex:1 1 100%}
+  .field{margin-top:22px}
+  textarea{min-height:140px;padding:12px 14px}
+  .pstage{padding:60px 18px 24px}
+  .pbottom{padding:12px 14px}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<main id="home" class="view wrap active">
+  <div class="topbar" style="justify-content:flex-end;margin-bottom:6px"><button class="themeBtn ghost">☾ تیره</button></div>
+  <h1>نامه‌ای از فردا</h1>
+  <p class="lead">تصور کن امروز از دنیا رفته‌ای. به هر کدام از نزدیکانت فکر کن و با آرامش بنویس:</p>
+  <ol class="prompts">
+    <li>۱. چی حدس می‌زنی درباره‌ات بگویند؟</li>
+    <li>۲. چی دوست داری درباره‌ات بگویند؟</li>
+  </ol>
+  <p class="note">اگر نوشتن این‌ها احساس سنگینی یا غم بیشتری آورد، این هم بخشی از کار است. این احساس را با روانشناست در میان بگذار.</p>
+
+  <div class="addrow">
+    <input id="newName" placeholder="اسم" maxlength="80">
+    <select id="newRel"></select>
+    <button id="addBtn">افزودن</button>
+  </div>
+
+  <ul id="list" class="list"></ul>
+  <p id="empty" class="empty">هنوز کسی اضافه نشده. اولین نفر را اضافه کن.</p>
+
+  <div class="toolbar">
+    <button id="presentAll">نمایش برای دکتر</button>
+    <button id="exportBtn" class="ghost">خروجی گرفتن</button>
+    <label class="ghost" style="cursor:pointer;border:1px solid var(--line);border-radius:999px;padding:10px 18px;">
+      ورودی فایل
+      <input type="file" id="importFile" accept="application/json,.json" hidden>
+    </label>
+  </div>
+
+  <details class="io" id="ioBox">
+    <summary>انتقال داده با متن</summary>
+    <textarea id="ioText" spellcheck="false" placeholder="متن JSON را اینجا بچسبان یا خروجی را اینجا ببین"></textarea>
+    <div style="text-align:center"><button id="importPaste" class="ghost">وارد کردن این متن</button></div>
+  </details>
+</main>
+
+<main id="person" class="view wrap">
+  <div class="topbar sticky">
+    <button class="ghost" id="backBtn">بازگشت</button>
+    <span id="saveStatus" class="status">ذخیره شد ✓</span>
+    <button class="themeBtn ghost">☾ تیره</button>
+  </div>
+
+  <input id="pNameIn" class="nameIn" maxlength="80" placeholder="اسم">
+  <div><select id="pRelIn" class="relIn"></select></div>
+
+  <label class="field">
+    <span>۱. چی حدس می‌زنم بگویند؟</span>
+    <textarea id="guess" placeholder="بی‌فیلتر بنویس..."></textarea>
+  </label>
+  <label class="field">
+    <span>۲. چی دوست دارم بگویند؟</span>
+    <textarea id="wish" placeholder="هر چیزی که دلت می‌خواهد بشنوی..."></textarea>
+  </label>
+
+  <div class="rowbtns">
+    <button class="ghost" id="presOne">نمایش این فرد</button>
+    <button class="danger" id="delBtn">حذف</button>
+  </div>
+</main>
+
+<div id="present" class="present hidden" aria-hidden="true">
+  <button class="pclose" id="pClose" aria-label="بستن">✕</button>
+  <div class="pfill"><i id="pFill"></i></div>
+  <div class="pstage" id="pstage" tabindex="-1"></div>
+  <div class="pbottom">
+    <button id="pPrev">قبلی</button>
+    <span id="pCount"></span>
+    <button id="pNext">بعدی</button>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+const KEY = 'farda-letter-v1';
+const RELS = ['پدر','مادر','همسر','فرزند','خواهر','برادر','دوست صمیمی','همکار','آشنا','سایر'];
+
+let state = { app: 'farda-letter', version: 1, people: [] };
+let curId = null;
+let deck = [], deckIdx = 0, deckTotal = 0, presPid = null;
+
+const $ = id => document.getElementById(id);
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+const find = id => state.people.find(p => p.id === id);
+
+function load(){
+  try{
+    const raw = localStorage.getItem(KEY);
+    if(raw){
+      const d = JSON.parse(raw);
+      if(d && Array.isArray(d.people)) state = d;
+    }
+  }catch(e){}
+}
+function persist(){
+  try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){}
+}
+
+let toastT;
+function toast(msg){
+  const t = $('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastT);
+  toastT = setTimeout(() => t.classList.remove('show'), 2200);
+}
+let flashT;
+function flash(msg){
+  const el = $('saveStatus');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(flashT);
+  flashT = setTimeout(() => el.classList.remove('show'), 1400);
+}
+
+function show(view){
+  document.querySelectorAll('.view').forEach(v => v.classList.toggle('active', v.id === view));
+  window.scrollTo(0, 0);
+}
+
+function fillRelSelect(sel){
+  sel.innerHTML = '';
+  RELS.forEach(r => sel.add(new Option(r, r)));
+}
+
+/* ---------- list ---------- */
+function renderList(){
+  const ul = $('list');
+  ul.innerHTML = '';
+  state.people.forEach((p, i) => {
+    const li = document.createElement('li');
+    li.className = 'item';
+    li.style.animationDelay = (i * 60) + 'ms';
+    const btn = document.createElement('button');
+    btn.className = 'row';
+    const nm = document.createElement('span');
+    nm.className = 'nm';
+    nm.textContent = p.name;
+    const rel = document.createElement('span');
+    rel.className = 'rel';
+    rel.textContent = p.relation;
+    btn.append(nm, rel);
+    btn.onclick = () => openPerson(p.id);
+    li.appendChild(btn);
+    ul.appendChild(li);
+  });
+  $('empty').style.display = state.people.length ? 'none' : 'block';
+}
+
+function addPerson(){
+  const name = $('newName').value.trim();
+  if(!name){
+    const el = $('newName');
+    el.style.animation = 'shake .4s';
+    setTimeout(() => el.style.animation = '', 400);
+    el.focus();
+    return;
+  }
+  const p = { id: uid(), name, relation: $('newRel').value, guess: '', wish: '', updatedAt: Date.now() };
+  state.people.push(p);
+  persist();
+  $('newName').value = '';
+  renderList();
+  openPerson(p.id);
+}
+
+/* ---------- person ---------- */
+function openPerson(id){
+  const p = find(id);
+  if(!p) return;
+  curId = id;
+  $('pNameIn').value = p.name;
+  if(!RELS.includes(p.relation)) $('pRelIn').add(new Option(p.relation, p.relation));
+  $('pRelIn').value = p.relation;
+  $('guess').value = p.guess;
+  $('wish').value = p.wish;
+  $('saveStatus').classList.remove('show');
+  delReset();
+  show('person');
+  autosizeAll();
+  requestAnimationFrame(autosizeAll);
+}
+
+function autosize(el){
+  const y = window.scrollY;
+  el.style.height = 'auto';
+  el.style.height = (el.scrollHeight + 2) + 'px';
+  window.scrollTo(0, y);
+}
+function autosizeAll(){
+  if($('person').classList.contains('active')) ['guess','wish'].forEach(id => autosize($(id)));
+}
+
+function saveField(){
+  const p = find(curId);
+  if(!p) return;
+  const name = $('pNameIn').value.trim();
+  if(name) p.name = name;
+  p.relation = $('pRelIn').value;
+  p.guess = $('guess').value;
+  p.wish = $('wish').value;
+  p.updatedAt = Date.now();
+  persist();
+  flash('ذخیره شد ✓');
+}
+
+let delArmed = false, delT;
+function delReset(){
+  delArmed = false;
+  clearTimeout(delT);
+  $('delBtn').textContent = 'حذف';
+}
+function deletePerson(){
+  if(!delArmed){
+    delArmed = true;
+    $('delBtn').textContent = 'مطمئنی؟ دوباره بزن';
+    delT = setTimeout(delReset, 3000);
+    return;
+  }
+  state.people = state.people.filter(p => p.id !== curId);
+  persist();
+  delReset();
+  renderList();
+  show('home');
+  toast('حذف شد');
+}
+
+/* ---------- presentation ---------- */
+function startPresent(list){
+  if(!list.length){ toast('هنوز کسی اضافه نشده'); return; }
+  deck = [];
+  deckTotal = list.length;
+  list.forEach((p, i) => { [0, 1, 2].forEach(level => deck.push({ p, i, level })); });
+  deckIdx = 0;
+  presPid = null;
+  $('present').classList.remove('hidden');
+  $('present').setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  renderDeck();
+  $('pstage').focus({ preventScroll: true });
+}
+function closePresent(){
+  $('present').classList.add('hidden');
+  $('present').setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  presPid = null;
+}
+function renderDeck(){
+  const s = deck[deckIdx];
+  const st = $('pstage');
+  if(presPid !== s.p.id){
+    presPid = s.p.id;
+    st.innerHTML =
+      '<div class="slide">' +
+        '<h2 class="pn"></h2>' +
+        '<p class="pr"></p>' +
+        '<div class="block g"><span class="lbl">حدس من از چیزی که خواهند گفت</span><p class="txt"></p></div>' +
+        '<div class="block w"><span class="lbl">چیزی که دوست دارم بگویند</span><p class="txt"></p></div>' +
+      '</div>';
+    st.querySelector('.pn').textContent = s.p.name;
+    st.querySelector('.pr').textContent = s.p.relation;
+    st.querySelector('.g .txt').textContent = s.p.guess.trim() || '—';
+    st.querySelector('.w .txt').textContent = s.p.wish.trim() || '—';
+  }
+  const slide = st.querySelector('.slide');
+  if(!slide.dataset.sized){
+    slide.dataset.sized = '1';
+    const L = Math.max(s.p.guess.length, s.p.wish.length);
+    if(L > 800) slide.classList.add('xlong');
+    else if(L > 350) slide.classList.add('long');
+    st.scrollTop = 0;
+  }
+  [['.g', 1], ['.w', 2]].forEach(([sel, n]) => {
+    const b = slide.querySelector(sel);
+    if(s.level >= n){
+      if(!b.classList.contains('show')){ b.classList.add('show'); void b.offsetWidth; }
+      b.classList.add('on');
+    }else{
+      b.classList.remove('on', 'show');
+    }
+  });
+  const tgt = s.level === 2 ? slide.querySelector('.w') : (s.level === 1 ? slide.querySelector('.g') : null);
+  if(tgt) st.scrollTo({ top: Math.max(0, tgt.offsetTop - 28), behavior: 'smooth' });
+
+  $('pFill').style.width = ((deckIdx + 1) / deck.length * 100) + '%';
+  $('pCount').textContent = (s.i + 1) + ' / ' + deckTotal;
+  $('pPrev').disabled = deckIdx === 0;
+  $('pNext').textContent = deckIdx === deck.length - 1 ? 'پایان' : 'بعدی';
+}
+function go(d){
+  const n = deckIdx + d;
+  if(n < 0 || n >= deck.length) return;
+  deckIdx = n;
+  renderDeck();
+}
+
+/* ---------- export / import ---------- */
+async function exportData(){
+  const text = JSON.stringify({ app: 'farda-letter', version: 1, exportedAt: new Date().toISOString(), people: state.people }, null, 2);
+  const filename = 'farda-letter-' + new Date().toISOString().slice(0, 10) + '.json';
+  let dl = null;
+  try{
+    if(window.claude && window.claude.use) dl = await window.claude.use('downloads');
+  }catch(e){ dl = null; }
+  if(dl){
+    try{
+      await dl.save({ filename, data: text });
+      toast('فایل ذخیره شد');
+      return;
+    }catch(e){
+      if(e && e.code === 'declined') return;
+    }
+  }
+  const box = $('ioBox');
+  box.open = true;
+  $('ioText').value = text;
+  $('ioText').focus();
+  $('ioText').select();
+  toast('متن خروجی آماده‌ی کپی است');
+}
+
+function importText(text){
+  let d;
+  try{ d = JSON.parse(text); }catch(e){ toast('این فایل معتبر نیست'); return; }
+  if(!d || !Array.isArray(d.people)){ toast('ساختار فایل درست نیست'); return; }
+  const map = new Map(state.people.map(p => [p.id, p]));
+  let added = 0, updated = 0;
+  d.people.forEach(raw => {
+    if(!raw || typeof raw.name !== 'string' || !raw.name.trim()) return;
+    const incoming = {
+      id: String(raw.id || uid()),
+      name: raw.name.trim().slice(0, 80),
+      relation: RELS.includes(raw.relation) ? raw.relation : (raw.relation ? String(raw.relation).slice(0, 40) : 'سایر'),
+      guess: String(raw.guess || ''),
+      wish: String(raw.wish || ''),
+      updatedAt: Number(raw.updatedAt) || Date.now()
+    };
+    const existing = map.get(incoming.id);
+    if(existing){
+      if(incoming.updatedAt >= (existing.updatedAt || 0)){
+        Object.assign(existing, incoming);
+        updated++;
+      }
+    }else{
+      state.people.push(incoming);
+      map.set(incoming.id, incoming);
+      added++;
+    }
+  });
+  persist();
+  renderList();
+  toast(added + ' نفر اضافه، ' + updated + ' نفر به‌روز شد');
+}
+
+/* ---------- wiring ---------- */
+const THEME_KEY = 'farda-theme';
+function currentTheme(){
+  const a = document.documentElement.getAttribute('data-theme');
+  if(a) return a;
+  return window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+function paintThemeBtn(){
+  const label = currentTheme() === 'dark' ? '☀ روشن' : '☾ تیره';
+  document.querySelectorAll('.themeBtn').forEach(b => { b.textContent = label; });
+}
+function setTheme(t){
+  document.documentElement.setAttribute('data-theme', t);
+  try{ localStorage.setItem(THEME_KEY, t); }catch(e){}
+  paintThemeBtn();
+}
+function toggleTheme(){ setTheme(currentTheme() === 'dark' ? 'light' : 'dark'); }
+function initTheme(){
+  let saved = null;
+  try{ saved = localStorage.getItem(THEME_KEY); }catch(e){}
+  if(saved === 'light' || saved === 'dark') document.documentElement.setAttribute('data-theme', saved);
+  paintThemeBtn();
+}
+function hasFont(name){
+  const c = document.createElement('canvas').getContext('2d');
+  const sample = 'mmmmmmmmmmlliآبپ۱۲۳';
+  c.font = '72px monospace';
+  const base = c.measureText(sample).width;
+  c.font = '72px "' + name + '", monospace';
+  return c.measureText(sample).width !== base;
+}
+async function pickFont(){
+  try{ if(document.fonts && document.fonts.load) await document.fonts.load('16px DoranVF'); }catch(e){}
+  const found = ['DoranVF','Doran-VF','Doran VF','Doran'].some(hasFont);
+  if(!found) document.documentElement.classList.add('fa-fallback');
+}
+function init(){
+  load();
+  initTheme();
+  pickFont();
+  fillRelSelect($('newRel'));
+  fillRelSelect($('pRelIn'));
+  renderList();
+  show('home');
+
+  $('addBtn').onclick = addPerson;
+  $('newName').addEventListener('keydown', e => { if(e.key === 'Enter') addPerson(); });
+
+  $('backBtn').onclick = () => { renderList(); show('home'); };
+  ['pNameIn','pRelIn','guess','wish'].forEach(id => $(id).addEventListener('input', saveField));
+  ['guess','wish'].forEach(id => $(id).addEventListener('input', () => autosize($(id))));
+  window.addEventListener('resize', autosizeAll);
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(autosizeAll);
+  $('pRelIn').addEventListener('change', saveField);
+  $('delBtn').onclick = deletePerson;
+  $('presOne').onclick = () => { const p = find(curId); if(p) startPresent([p]); };
+
+  $('presentAll').onclick = () => startPresent(state.people);
+  $('pClose').onclick = closePresent;
+  $('pPrev').onclick = () => go(-1);
+  $('pNext').onclick = () => go(1);
+  const stg = $('pstage');
+  stg.onclick = () => { if(window.getSelection && String(getSelection()).length) return; go(1); };
+  let tx = 0, ty = 0;
+  stg.addEventListener('touchstart', e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+  stg.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+    if(Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.6) go(dx < 0 ? 1 : -1);
+  }, { passive: true });
+
+  document.querySelectorAll('.themeBtn').forEach(b => { b.onclick = toggleTheme; });
+  $('exportBtn').onclick = exportData;
+  $('importFile').onchange = async e => {
+    const f = e.target.files[0];
+    if(!f) return;
+    importText(await f.text());
+    e.target.value = '';
+  };
+  $('importPaste').onclick = () => {
+    const t = $('ioText').value.trim();
+    if(t) importText(t);
+  };
+
+  document.addEventListener('keydown', e => {
+    if($('present').classList.contains('hidden')) return;
+    if(e.key === 'Escape') closePresent();
+    else if(['ArrowLeft',' ','Enter'].includes(e.key)){ e.preventDefault(); go(1); }
+    else if(['ArrowRight','Backspace'].includes(e.key)){ e.preventDefault(); go(-1); }
+  });
+}
+init();
+</script>
+</body>
+</html>
